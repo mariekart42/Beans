@@ -4,16 +4,10 @@
 #include <stdlib.h>
 #include <math.h>
 
-int binary_conversion(int n, int count);
+// int binary_conversion(int n, int count);
 
-int binary_len(int n);
+// int binary_len(int n);
 
-int main(void)
-{
-    int n;
-    scanf("%d", &n);
-    printf("%d", binary_conversion(n,binary_len));git 
-}
 
 int binary_len(int n)
 {
@@ -23,27 +17,34 @@ int binary_len(int n)
         n/= 10;
         count++;
     }
-    printf("%d", count);
     return count;
 }
 
 
-int binary_conversion(int n, int count)
+int binary_conversion(int n)
 {
-    int arr[count];
+    int count = binary_len(n);
+    int arr[count];
     int i = 0;
-    while(i<=count)
+    while(i <= count)
     {
         arr[i] = n % 10;
         n /= 10;
-        i++;;
+        i++;
     }
-    int result;
-    
-    for(int j = 0; j <= count; j++)
+    int result = 0;
+    int num = 1;
+    for(int j = 0; j < count; j++)
     {
-        result += arr[j] * pow(2,j);
-        j++;
+        result += arr[j] * num;
+        num *= 2;   
     }
-    
+    return(result);
+}
+
+int main(void)
+{
+    int n;
+    scanf("%d", &n);
+    printf("main: %d", binary_conversion(n));
 }
