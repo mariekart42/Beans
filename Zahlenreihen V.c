@@ -1,3 +1,5 @@
+//bei nem input von (45, 16) soll 1 rauskommen, tut es auch, der Überprüfger von smartbeans sagt aber Erwartet: 1 Erhalten: 0
+
 #include <stdio.h>
 #include <limits.h>
 #include <float.h>
