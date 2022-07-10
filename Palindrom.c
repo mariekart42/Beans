@@ -23,7 +23,7 @@ int strcmp_A_a(char *str, char *arr)
         }
         i++;
     }
-    if(count == (int)strlen(str))
+    if (count == (int)strlen(str))
         return (0);
     else
         return (1);
@@ -38,12 +38,9 @@ int palindrom(char* string, int laenge)
     arr[laenge] = '\0';
     while(i <= laenge)
     {
-        printf("len(%d)-i(%d); %c\n",laenge, i, string[laenge-1-i]);
         arr[i] = string[laenge - 1 - i];
         i++;
     }
-    printf("arr: %s\nstring: %s\n", arr, string);
-
     return strcmp_A_a(string, arr);
 }
 
@@ -53,9 +50,7 @@ int main(void)
     int laenge;
     scanf("%1023s %d", string, &laenge);
     if(palindrom(string, laenge) == 0)
-    {
         printf("palindrom");
-    }
     else
         printf("kein palindrom");
 }

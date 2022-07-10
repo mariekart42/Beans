@@ -5,28 +5,31 @@
 
 int main()
 {
-    int i = 0;
+    //int i = 0;
     int j = 0;
     int k = 0;
-    char arr[160];
     char Toni[160];
     char Thomke[160];
-    scanf("%s", arr);
-    while(i < 160)
+    char x = 'x';
+
+    while(!(x == '\n' || x == '\0') && (j + k < 160))
     {
-        if(isupper(arr[i]) == 1)
+        x = getchar();
+        if(isupper(x) == 1)
         {
-            Toni[j] = arr[i];
+            Toni[j] = x;
             j++;
         }
-        
-        if(islower(arr[i]) == 1)
+        if(islower(x) == 1)
         {
-            Thomke[k] = arr[i];
+            Thomke[k] = x;
             k++;
         }
-        i++;
+        //i++;
     }
-    printf("Nachricht an Toni: %s \n", Toni);
-    printf("Nachricht an Thomke: %s", Thomke);
+    
+    Toni[j] = '\0';
+    Thomke[k] = '\0';
+    printf("Nachricht an Toni: %s\n", Toni);
+    printf("Nachricht an Thomke: %s\n", Thomke);
 }
