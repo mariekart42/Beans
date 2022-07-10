@@ -7,19 +7,19 @@ char *substitute(const char *source, const char *target, const char *text)
 {
     int i = 0;
     int j = 0;
-    const char *arrout;
-    arrout = char *malloc(strlen(text) * sizeof(char));
+    char *arrout;
+    arrout = char *malloc( strlen(text) * sizeof(char) + 1);
     
-    int length_text = strlen(text);
-    int length_source = strlen(source);
-    int length_target = strlen(target);
+    unsigned long length_text = strlen(text);
+    unsigned long length_source = strlen(source);
+    unsigned long length_target = strlen(target);
     
     if(length_source != length_target)
     {
         return NULL;
     }
     
-    if(text > length_target)
+    if(length_text > length_target)
     {
         return NULL;
     }
@@ -41,4 +41,5 @@ char *substitute(const char *source, const char *target, const char *text)
     
     return arrout;
 }
+
 
