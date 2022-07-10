@@ -7,7 +7,7 @@ int hauskauf(float sparen_emily, float sparen_sarah, int haus_kosten)
 	float	money = 0;
 		
 	money = sparen_emily + sparen_sarah;
-	while (money <= haus_kosten)
+	while (money < haus_kosten)
 	{
 		if(month % 36 == 0 && month != 0)
 			percent += 0.001;
