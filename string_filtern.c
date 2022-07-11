@@ -21,7 +21,7 @@ char* string_filter(const char* text)
      int i = 0;
      int len = calc_len(text);
      char *str;
-     str =(char *)calloc(len+1, sizeof(char)) ;
+     str =(char *)calloc(len+1, sizeof(char));
      while(text[i] != '\0')
      {
           if(isupper(text[i]) == 1 || islower(text[i]) == 1)
@@ -35,8 +35,8 @@ char* string_filter(const char* text)
      return(str);
 }
 
-// int main(void)
-// {
-//      printf("filtered: %s\n", string_filter("bla bums"));
+int main(void)
+{
+     printf("filtered: %s\n", string_filter("bla bums"));
 
-// }
+}
