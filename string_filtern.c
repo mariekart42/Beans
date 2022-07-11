@@ -1,14 +1,15 @@
 #include <stdio.h>
 #include <ctype.h>
 #include <stdlib.h>
+#include <string.h>
 
 int calc_len(const char *str)
 {
      int count = 0;
      int i = 0;
-     while(str[i] != '\0')
+     while (str[i] != '\0')
      {
-          if(isupper(str[i]) == 1 || islower(str[i]) == 1)
+          if((str[i] >= 65 && str[i] <= 90 || str[i] >= 97 && str[i] <= 122))
                count++;
           i++;
      }
@@ -21,10 +22,12 @@ char* string_filter(const char* text)
      int i = 0;
      int len = calc_len(text);
      char *str;
-     str =(char *)calloc(len+1, sizeof(char));
-     while(text[i] != '\0')
+     str = (char *)calloc(len+1, sizeof(char));
+     if (!str)
+          return (NULL);
+     while (text[i] != '\0')
      {
-          if(isupper(text[i]) == 1 || islower(text[i]) == 1)
+          if (text[i] >= 65 && text[i] <= 90 || text[i] >= 97 && text[i] <= 122)
           {
                str[k] = text[i];
                k++;
@@ -35,8 +38,8 @@ char* string_filter(const char* text)
      return(str);
 }
 
-int main(void)
-{
-     printf("filtered: %s\n", string_filter("bla bums"));
+// int main(void)
+// {
+//      printf("filtered: %s\n", string_filter("bla bums"));
 
-}
+// }
