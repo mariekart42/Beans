@@ -6,37 +6,49 @@
 #include <ctype.h>
 #include <string.h>
 
-int sortieren (int *von, int *bis)
+int count = 0;
+
+int sortieren(int *von, int *bis)
 {
-    if(von != bis)
+    int cache_out = 0;
+    int *ptr_out = NULL;
+   
+    if (von == bis)
     {
-        int count = 0;
-        int compare = *von;
-        int *ptr = von;
-    
-        while(ptr != bis)
+        return(0);
+    }
+       
+    int cache = *von;
+    int *ptr = von;
+
+ 
+        while (ptr < bis)
         {
-            if(compare < *ptr)
+            if(cache > *ptr)
             {
-                compare = *ptr;
-                count++;
+                cache = *ptr;
+                ptr_out = ptr;
             }
-                ptr++;
+            ptr++;
         }
     
-    if(*von != compare)
+    
+    if(*von != cache)
     {
-        *von = compare;
+        cache_out = *von;
+        *von = cache;
+        *ptr_out = cache_out;
         count++;
     }
-    
-        if(ptr != bis)
-        {
-            sortieren(von++, bis);
-        }
 
+    sortieren(++von, bis);
+       
+    
     return count;
-    }
 }
 
-
+int main(void)
+{
+     int alles[30] = {1, 7, 4, 3, 2, 9, 4};
+     printf("result: %d\n", sortieren(&alles[1], &alles[5]));
+ }
